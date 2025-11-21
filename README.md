@@ -98,7 +98,7 @@ export OUTPUT=/path/to/output    # path to output folder
 
 When `step1_run_setup_moreg` is finished running, the user may run `step2_run_do_feat`. This also requires the user to modify some parameters at the beginning of the script. These are shown below:
 ```
-export OUTPUT=/path/to/output                     # path to output folder (should be the same as in step1_run_setup_moreg)                                   
+export OUTPUT=/path/to/output                     # path to output folder (same as in step1_run_setup_moreg)                                   
 export TASKS=(EMOTION \
               GAMBLING \
               LANGUAGE \
