@@ -17,7 +17,7 @@ For each scan in the dataset, the pipeline creates an .fsf file for each option 
 ## Requirements
 This pipeline requires local or remote access to the HCP1200 dataset and the Joint HPC Exchange (JHPCE) for submitting batch jobs and loading modules.
 
-## Organization and File Structure
+## File Organization and Description
 
 ```
 .
@@ -71,6 +71,20 @@ This pipeline requires local or remote access to the HCP1200 dataset and the Joi
 ├── step1_run_setup_moreg
 └── step2_run_do_feat
 ```
+
+  * `./code/do_feat`: JHPCE batch script. Submits array job for running level 1 FEAT analyses given selected .fsf files. Requires user to input 1) a .txt file containing .fsf paths, and 2) the size of the array (i.e., number of .fsf files to execute).
+
+  * `./code/make_motion_regressor_table`: Contains MATLAB functions for extracting motion regressors, calculating framewise displacements (FD), and convolving FD traces with the modeled HRF.
+
+  * `./code/setup_moreg.sh`: JHPCE batch script. Submits a job that consolidates all of the HCP data needed to run level 1 FEAT analyses and motion correction methods on each HCP scan. Also constructs a .fsf file for each scan and motion correction method.
+
+  * `./feat_templates`: Contains template .fsf files for each task and motion correction method. These templates are used to construct scan-specific .fsf files in `setup_moreg.sh`.
+
+  * `./hrf_models`: Contains the HRF model, along with its first and second derivatives, used for convolving thresholded FD traces.
+
+  * `./step1_run_setup_moreg`: A shell script that initiates `setup_moreg.sh` based on user-defined inputs.
+
+  * `./step2_run_do_feat`: A shell script that initiates `do_feat` based on user-defined inputs.
 
 ## Configuration and Usage
 
