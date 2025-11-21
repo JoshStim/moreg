@@ -19,6 +19,57 @@ This pipeline requires local or remote access to the HCP1200 dataset and the Joi
 
 ## Organization and File Structure
 
+├── README.md
+├── code
+│   ├── do_feat
+│   ├── make_motion_regressor_table
+│   │   ├── convolve_fd.m
+│   │   ├── extract_taskname.m
+│   │   ├── get_fd.m
+│   │   ├── make_regressor_table.m
+│   │   └── make_regressor_table_batch.m
+│   └── setup_moreg.sh
+├── feat_templates
+│   ├── fd_mag_convolved
+│   │   ├── tfMRI_EMOTION_hp200_s4_level1.fsf
+│   │   ├── tfMRI_GAMBLING_hp200_s4_level1.fsf
+│   │   ├── tfMRI_LANGUAGE_hp200_s4_level1.fsf
+│   │   ├── tfMRI_MOTOR_hp200_s4_level1.fsf
+│   │   ├── tfMRI_RELATIONAL_hp200_s4_level1.fsf
+│   │   ├── tfMRI_SOCIAL_hp200_s4_level1.fsf
+│   │   └── tfMRI_WM_hp200_s4_level1.fsf
+│   ├── fd_mag_convolved_w_motion_params
+│   │   ├── tfMRI_EMOTION_hp200_s4_level1.fsf
+│   │   ├── tfMRI_GAMBLING_hp200_s4_level1.fsf
+│   │   ├── tfMRI_LANGUAGE_hp200_s4_level1.fsf
+│   │   ├── tfMRI_MOTOR_hp200_s4_level1.fsf
+│   │   ├── tfMRI_RELATIONAL_hp200_s4_level1.fsf
+│   │   ├── tfMRI_SOCIAL_hp200_s4_level1.fsf
+│   │   └── tfMRI_WM_hp200_s4_level1.fsf
+│   ├── motion_params_only
+│   │   ├── tfMRI_EMOTION_hp200_s4_level1.fsf
+│   │   ├── tfMRI_GAMBLING_hp200_s4_level1.fsf
+│   │   ├── tfMRI_LANGUAGE_hp200_s4_level1.fsf
+│   │   ├── tfMRI_MOTOR_hp200_s4_level1.fsf
+│   │   ├── tfMRI_RELATIONAL_hp200_s4_level1.fsf
+│   │   ├── tfMRI_SOCIAL_hp200_s4_level1.fsf
+│   │   └── tfMRI_WM_hp200_s4_level1.fsf
+│   └── no_motion_correction
+│       ├── tfMRI_EMOTION_hp200_s4_level1.fsf
+│       ├── tfMRI_GAMBLING_hp200_s4_level1.fsf
+│       ├── tfMRI_LANGUAGE_hp200_s4_level1.fsf
+│       ├── tfMRI_MOTOR_hp200_s4_level1.fsf
+│       ├── tfMRI_RELATIONAL_hp200_s4_level1.fsf
+│       ├── tfMRI_SOCIAL_hp200_s4_level1.fsf
+│       └── tfMRI_WM_hp200_s4_level1.fsf
+├── hrf_models
+│   ├── hrf_model.mat
+│   ├── hrf_model_dx1.mat
+│   └── hrf_model_dx2.mat
+├── step1_run_setup_moreg
+└── step2_run_do_feat
+
+
 ## Configuration and Usage
 
 ## Storage Requirements
