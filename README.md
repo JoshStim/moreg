@@ -22,7 +22,4 @@ This pipeline requires local or remote access to the HCP1200 dataset and the Joi
 ## Configuration and Usage
 
 ## Storage Requirements
-<<<<<<< HEAD
-=======
 
->>>>>>> 42842cd (Renamed step1_run_steup_moreg to step1_run_setup_moreg)
