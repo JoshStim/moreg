@@ -98,8 +98,14 @@ export OUTPUT=/path/to/output    # path to output folder
 
 When `step1_run_setup_moreg` is finished running, the user may run `step2_run_do_feat`. This also requires the user to modify some parameters at the beginning of the script. These are shown below:
 ```
-export OUTPUT=/path/to/output # path to output folder (should be the same as in step1_run_setup_moreg)                                   
-export TASKS=(EMOTION GAMBLING LANGUAGE MOTOR RELATIONAL SOCIAL WM)                                        # list of tasks to run FEAT analysis on
+export OUTPUT=/path/to/output                     # path to output folder (should be the same as in step1_run_setup_moreg)                                   
+export TASKS=(EMOTION \
+              GAMBLING \
+              LANGUAGE \
+              MOTOR \
+              RELATIONAL \
+              SOCIAL \
+              WM)                                 # list of tasks to run FEAT analysis on
 export METHODS=(no_motion_correction \
                 motion_params_only \
                 fd_mag_convolved \
