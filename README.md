@@ -19,6 +19,8 @@ This pipeline requires local or remote access to the HCP1200 dataset and the Joi
 
 ## Organization and File Structure
 
+```
+.
 ├── README.md
 ├── code
 │   ├── do_feat
@@ -68,7 +70,7 @@ This pipeline requires local or remote access to the HCP1200 dataset and the Joi
 │   └── hrf_model_dx2.mat
 ├── step1_run_setup_moreg
 └── step2_run_do_feat
-
+```
 
 ## Configuration and Usage
 
