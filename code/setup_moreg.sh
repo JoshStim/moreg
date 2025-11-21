@@ -90,8 +90,7 @@ setup_moreg() {
     # STEP 3: prepare inputs that will be required for feat
     motion_regressor_paths_arr=()
     hcp_subject_paths_arr=()
-    #for sub in "${HCP_ROOT}"/??????; do
-        sub="${HCP_ROOT}"/100408
+    for sub in "${HCP_ROOT}"/??????; do
         tfmri="${sub}"/MNINonLinear/Results/tfMRI_"${task}"_"${ped}"
         nii="${tfmri}"/tfMRI_"${task}"_"${ped}".nii.gz
         evs="${tfmri}"/EVs
@@ -114,7 +113,7 @@ setup_moreg() {
             cp -sa "${regressors}" "${motion_regressor_dst}"
             motion_regressor_paths_arr+=("${motion_regressor_dst}")
         fi
-    #done
+    done
     # remove old copies of fd files from existing runs
     find "${outp}" -type l -name "fd_*" -delete
 
