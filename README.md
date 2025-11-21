@@ -109,7 +109,7 @@ TASKS=(EMOTION \
 METHODS=(no_motion_correction \
          motion_params_only \
          fd_mag_convolved \
-         fd_mag_convolved_w_motion_params) # list of motion correction 
+         fd_mag_convolved_w_motion_params) # list of motion correction methods to apply
 ```
 
 The user may modify the `TASKS` and/or `METHODS` variables to select specific subsets of the .fsf files to run `do_feat` on.
