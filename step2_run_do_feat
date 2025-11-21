@@ -3,7 +3,7 @@
 ###################### Define relevant variables ########################
 #########################################################################
 
-OUTPUT=/dcl01/smart/data/moreg/output
+OUTPUT=/fastscratch/myscratch/jstim/moreg/output
 TASKS=(EMOTION)
 #TASKS=(EMOTION GAMBLING LANGUAGE MOTOR RELATIONAL SOCIAL WM)
 METHODS=(no_motion_correction motion_params_only fd_mag_convolved fd_mag_convolved_w_motion_params)
