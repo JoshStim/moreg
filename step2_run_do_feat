@@ -1,0 +1,42 @@
+#!/bin/bash
+#########################################################################
+###################### Define relevant variables ########################
+#########################################################################
+
+OUTPUT=/dcl01/smart/data/moreg/output
+TASKS=(EMOTION)
+#TASKS=(EMOTION GAMBLING LANGUAGE MOTOR RELATIONAL SOCIAL WM)
+METHODS=(no_motion_correction motion_params_only fd_mag_convolved fd_mag_convolved_w_motion_params)
+
+#########################################################################
+############### Extract subset of .fsf files to execute  ################
+#########################################################################
+
+> ${OUTPUT}/tmp #re-initialize temporary fsf list file
+
+for task in "${TASKS[@]}"; do
+    for method in "${METHODS[@]}"; do
+        grep -E "${task}.*${method}.fsf" "${OUTPUT}/all_fsfs" >> "${OUTPUT}/tmp"
+    done
+done
+
+#########################################################################
+################## Execute FEAT analyses on subset ######################
+#########################################################################
+# jhpce only allows for array jobs to include 10000 entries
+# so, these next lines are for ensuring that each array job
+# is within that limit.
+
+n=$(wc -l < "${OUTPUT}/tmp")
+
+if (( $n > 10000 )); then
+    nbatch=$((n / 10000))
+    for batch in {0..$((nbatch - 1))}; do
+        sbatch --array 0-9999 --export=ALL,_BATCH="${batch}" ./code/do_feat "${OUTPUT}/tmp" "10000"
+    done
+fi
+
+remainder=$((n % 10000))
+if (( $remainder > 0 )); then
+    sbatch --array 0-$((remainder-1)) --export=ALL,_BATCH=0 ./code/do_feat "${OUTPUT}/tmp" "${remainder}"
+fi

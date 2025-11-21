@@ -1,0 +1,32 @@
+#!/bin/bash
+#SBATCH --job-name=level1_analysis
+#SBATCH --ntasks=1
+#SBATCH --time=10:00:00
+#SBATCH --mem=5G
+#SBATCH --cpus-per-task=1
+#SBATCH --output=logs/level1_analysis_%A_%a.out
+#SBATCH --error=logs/level1_analysis_%A_%a.err
+#SBATCH --constraint="intel"
+
+module load fsl
+
+set -eux
+
+FSF=$1
+MAX_ARRAY_N=$2
+BATCH=${_BATCH:-0}
+
+r=$((SLURM_ARRAY_TASK_ID + 1 + MAX_ARRAY_N * BATCH))
+row=$(sed -n "${r}"p "${FSF}")
+parent=$(dirname "${row}")
+
+if compgen -G "${parent}/*feat"; then
+    echo "output already exists"
+    exit 0
+fi
+
+cd "${parent}" && feat "${row}"
+
+# here, add any cleanup. The following is just an example...
+find "${parent}" -name filtered_func_data.nii.gz -delete
+find "${parent}" -name res4d.nii.gz -delete

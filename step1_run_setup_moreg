@@ -1,0 +1,19 @@
+#!/bin/bash
+#########################################################################
+######################### Define directories ############################
+#########################################################################
+# make directory for logs see --output and --error options in sbatch scripts
+# if the directory in which the logs are to be placed does not already exist,
+# the call to sbatch will fail
+
+export MOREG_ROOT=/fastscratch/myscratch/jstim/moreg
+export HCP_ROOT=/dcs07/smart/data/human-connectome-project-openaccess/HCP1200
+export OUTPUT="${MOREG_ROOT}"/output
+
+mkdir "${MOREG_ROOT}"/logs # for storing job log files
+
+#########################################################################
+### Generate fsf files for all scans and motion correction techniques ###
+#########################################################################
+
+sbatch --export=MOREG_ROOT,HCP_ROOT,OUTPUT ./code/setup_moreg.sh
