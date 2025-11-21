@@ -17,8 +17,7 @@ For each scan in the dataset, the pipeline creates an .fsf file for each option 
 ## Requirements
 This pipeline requires local or remote access to the HCP1200 dataset and the Joint HPC Exchange (JHPCE) for submitting batch jobs and loading modules.
 
-## File Organization and Description
-
+## Pipeline Organization and Description
 ```
 .
 ├── README.md
