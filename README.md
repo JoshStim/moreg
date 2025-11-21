@@ -91,25 +91,25 @@ This pipeline contains two steps: `step1_run_setup_moreg` and `step2_run_do_feat
 
 Before running `step1_run_setup_moreg`, the user must modify some parameters at the beginning of the script. These parameters are described below:
 ```
-export MOREG_ROOT=/path/to/moreg # path to moreg folder
-export HCP_ROOT=/path/to/hcp     # path to HCP1200 folder containing all participant data
-export OUTPUT=/path/to/output    # path to output folder
+MOREG_ROOT=/path/to/moreg # path to moreg folder
+HCP_ROOT=/path/to/hcp     # path to HCP1200 folder containing all participant data
+OUTPUT=/path/to/output    # path to output folder
 ```
 
 When `step1_run_setup_moreg` is finished running, the user may run `step2_run_do_feat`. This also requires the user to modify some parameters at the beginning of the script. These are described below:
 ```
-export OUTPUT=/path/to/output                     # path to output folder (same as in step1_run_setup_moreg)                                   
-export TASKS=(EMOTION \
-              GAMBLING \
-              LANGUAGE \
-              MOTOR \
-              RELATIONAL \
-              SOCIAL \
-              WM)                                 # list of tasks to run FEAT analysis on
-export METHODS=(no_motion_correction \
-                motion_params_only \
-                fd_mag_convolved \
-                fd_mag_convolved_w_motion_params) # list of motion correction 
+OUTPUT=/path/to/output                     # path to output folder (same as in step1_run_setup_moreg)                                   
+TASKS=(EMOTION \
+       GAMBLING \
+       LANGUAGE \
+       MOTOR \
+       RELATIONAL \
+       SOCIAL \
+       WM)                                 # list of tasks to run FEAT analysis on
+METHODS=(no_motion_correction \
+         motion_params_only \
+         fd_mag_convolved \
+         fd_mag_convolved_w_motion_params) # list of motion correction 
 ```
 
 The user may modify the `TASKS` and/or `METHODS` variables to select specific subsets of the .fsf files to run `do_feat` on.
