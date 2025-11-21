@@ -126,6 +126,7 @@ bash step2_run_do_feat
 ```
 
 ## Output Organization and Description
+After running the pipeline, the output folder has the following organization.
 ```
 .
 ├── output
@@ -161,6 +162,3 @@ bash step2_run_do_feat
   * `./output/{TASK}_{PED}_{METHOD}/{SUBID}/tfMRI_{TASK}_{PED}.nii.gz`: Raw scan data for a given participant and task.
 
   * `./output/{TASK}_{PED}_{METHOD}/{SUBID}/tfMRI_{TASK}_{PED}_hp200_s4_level1_{METHOD}.fsf`: Scan and motion correction-specific .fsf file.
-
-## Storage Requirements
-
