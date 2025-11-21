@@ -10,6 +10,7 @@ export MOREG_ROOT=/fastscratch/myscratch/jstim/moreg
 export HCP_ROOT=/dcs07/smart/data/human-connectome-project-openaccess/HCP1200
 export OUTPUT="${MOREG_ROOT}"/output
 
+mkdir "${OUTPUT}"
 mkdir "${MOREG_ROOT}"/logs # for storing job log files
 
 #########################################################################
