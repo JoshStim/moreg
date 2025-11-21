@@ -86,17 +86,17 @@ This pipeline requires local or remote access to the HCP1200 dataset and the Joi
 
   * `./step2_run_do_feat`: A shell script that initiates `do_feat` based on user-defined inputs.
 
-## Configuration and Usage
+## Configuration
 This pipeline contains two steps: `step1_run_setup_moreg` and `step2_run_do_feat`.
 
-Before running `step1_run_setup_moreg`, the user must modify some parameters at the beginning of the script. These parameters are shown below:
+Before running `step1_run_setup_moreg`, the user must modify some parameters at the beginning of the script. These parameters are described below:
 ```
 export MOREG_ROOT=/path/to/moreg # path to moreg folder
 export HCP_ROOT=/path/to/hcp     # path to HCP1200 folder containing all participant data
 export OUTPUT=/path/to/output    # path to output folder
 ```
 
-When `step1_run_setup_moreg` is finished running, the user may run `step2_run_do_feat`. This also requires the user to modify some parameters at the beginning of the script. These are shown below:
+When `step1_run_setup_moreg` is finished running, the user may run `step2_run_do_feat`. This also requires the user to modify some parameters at the beginning of the script. These are described below:
 ```
 export OUTPUT=/path/to/output                     # path to output folder (same as in step1_run_setup_moreg)                                   
 export TASKS=(EMOTION \
@@ -111,6 +111,10 @@ export METHODS=(no_motion_correction \
                 fd_mag_convolved \
                 fd_mag_convolved_w_motion_params) # list of motion correction 
 ```
+
+The user may modify the `TASKS` and/or `METHODS` variables to select specific subsets of the .fsf files to run `do_feat` on.
+
+## Usage
 
 ## Storage Requirements
 
